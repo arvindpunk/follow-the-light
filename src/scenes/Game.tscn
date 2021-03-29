@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/objects/Pong.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/scenes/RichTextLabel.gd" type="Script" id=2]
+
+[node name="Game" type="Node2D"]
+position = Vector2( 1, 0 )
+
+[node name="Pong" parent="." instance=ExtResource( 1 )]
+position = Vector2( 221, 162 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 214.0
+margin_top = 39.0
+margin_right = 254.0
+margin_bottom = 79.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="input_event" from="Pong" to="RichTextLabel" method="_on_Pong_input_event"]
